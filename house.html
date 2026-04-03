@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Project</title>
+  <script src="Examination/script/aframe.min.js"></script>
+</head>
+<body>
+  <a-scene>
+    <!-- Correct asset management system -->
+    <a-assets>
+      <img id="DisplacementMap" src="Examination/img/DisplacementMap.jpg" alt="">
+      <img id="floor2" src="Examination/img/floor2-1024.jpg" alt="">
+      <img id="WhatsAppImage" src="Examination/img/WhatsApp Image 2025-02-27 at 07.33.56_789f2232.jpg" alt="">
+      <img src="Examination/img/Sky Background-56.jpg" id="SkyBackground" alt="">
+      <img src="Examination/img/Catapult_BaseColor.png" id="Catapult_BaseColor" alt="">
+      <a-asset-item id="villamodel" src="Examination/model/la_mansion.glb"></a-asset-item>
+    </a-assets>
+
+    <!--sky-->
+    <a-sky material="color: #ffffff;
+                     src: #SkyBackground" 
+           rotation="0 -60 0">
+    </a-sky>
+
+    <!-- Example of using the model in the scene -->
+    <a-entity gltf-model="#villamodel" position="3 0.2 3" scale="1 1 1"></a-entity>
+
+
+      <!-- Camera setup -->
+      <a-entity 
+      camera 
+      position="10 5 15" 
+      rotation="-15 -65 0" 
+      look-controls="enabled: true" 
+      wasd-controls="enabled: true">
+      </a-entity>
+
+
+    <!--Ground-->
+    <a-plane material="color: #ffffff;
+                       src: #floor2;
+                       normal-map: #floor2;
+                       normal-texture-repeat: 5000 5000;
+                       normal-map: #DisplacementMap;
+                       repeat: 5000 5000"
+            rotation="-90 0 0"
+            scale="10000 10000 1">
+    </a-plane>
+
+    <a-plane material="src: #WhatsAppImage; repeat: 35 35; roughness: 1"
+         rotation="-90 0 0"
+         scale="65 50 1">
+    </a-plane>
+  </a-scene>
+</body>
+</html>
